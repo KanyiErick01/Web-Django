@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Blog Posts!</h1>
+    {% for post in object_list %}
+    <div class="shadow p-3 mb-5 bg-body rounded">
+
+        <h2>{{ post.Title }}</h2><br/>
+
+        {{ post.Date_created }}<br/>
+
+        {{ post.author }}<br/>
+        
+        {{ post.content}}
+    </div>
+    <br/>
+    {% endfor %}
+    
+{% endblock %}    

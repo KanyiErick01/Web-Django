@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="shadow p-3 mb-5 bg-body rounded">
+    {{ post.Title | linebreaks }} 
+
+    {{ post.Date_created }}
+    
+    <p>{{ post.content | linebreaks }}</p>
+</div>
+<br/>
+{% endblock %}    
