@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="POST" action="">
-    {% csrf_token %}
-    {{form.username.label}}
-    {{form.username}}<br/><i class='bxr  bx-user'></i> 
+<div class="loginform">
+  <h2>LOGIN</h2>
+  <form method="POST" action=".">
+  {% csrf_token %}
+  {{ form.as_p}}
 
-    {{form.password.label}}
-    {{form.password}}<br/><i class='bxr  bx-lock'></i> 
-    
-    <input type="submit">
+  <input type="submit"><br/>
 
-    <h5>Don't Have an account?<a href="signup">Sign_Up Here!</a> </h5> 
 
-  </form> 
+  <h5>Don't Have An Account?<a href="signup">Sign-Up Here!</a> </h5> 
+
+  </form>
+</div>  
+
 {% endblock %}

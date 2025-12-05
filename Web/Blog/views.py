@@ -8,6 +8,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+
 class PostView(ListView):
     model = Post
     template_name = 'blog.html'  
@@ -15,7 +16,7 @@ class PostView(ListView):
 class BlogView(DetailView):
     model=Post
     template_name='blogdetail.html'  
-      
+           
 def loginPage(request):
     form=LoginForm()
     if request.method=="POST":
@@ -45,7 +46,6 @@ def sign_up(request):
 def index(request):
     return render(request,'index.html')
 
-@login_required
 def blog(request):
     posts=Post.objects.all().order_by('-Date_created')
     context= {
@@ -60,6 +60,7 @@ def blog_detail(request, pk):
     }    
     return render(request,"blogdetail.html",context)   
  
+@login_required
 def logout(request):
      
     auth.logout(request)

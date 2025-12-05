@@ -14,18 +14,20 @@
       <div class="navdiv">
         <div class="logo"><a href="#">Code with Erick</a> </div>
           <ul>
-            <li><a href="/">Home</a> </li>
+            <button><a href="/">Home</a> </button>
             <button><a href="loginPage">Sign In</a> </button>
             <button><a href="signup">Sign Up</a> </button>
             <button><a href="blog">Blogs</a> </button>
+            <button><a href="logout">Log Out</a> </button>
           </ul>
 
       </div>
 
     </nav>
+  <section class="content">  
     {% block content %}
-
+ 
     {% endblock %}
-    
+  </section>  
 </body>
 </html>
