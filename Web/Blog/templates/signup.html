@@ -1,26 +1,51 @@
-{% extends "base.html" %}
+{% extends 'Base.html' %}
+
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<div class="signupform">
-  <h2>SIGNUP</h2>
-  <form method="POST" action="">
-    {% csrf_token %}
-    {{form.username.label}}
-    {{form.username}}<br/>
+<div class="w-1/2 my-6 mx-auto p-6 bg-slate-600 rounded-xl">
+    <h1 class="mb-6 text-3xl">Sign Up</h1>
 
-    {{form.email.label}}
-    {{form.email}}<br/>
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="inline-block mb-2">Username</label><br>
+            {{ form.username }}
+        </div>
 
-    {{form.password1.label}}
-    {{form.password1}}<br/>
+        <div class="mb-3">
+            <label class="inline-block mb-2">Email</label><br>
+            {{ form.email }}
+        </div>
 
-    {{form.password2.label}}
-    {{form.password2}}<br/>
+        <div class="mb-3">
+            <label class="inline-block mb-2">Password1</label><br>
+            {{ form.password1 }}
+        </div>
 
-    <input type="submit"><br/>
+        <div class="mb-3">
+            <label class="inline-block mb-2">Password2</label><br>
+            {{ form.password2 }}
+        </div>
 
-    <h5>Already Have an account?<a href="loginPage">Login Here!</a> </h5> 
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                {% for field in form %}
+                    {{field.errors}}
+                {% endfor %}
 
-  </form>
-</div>  
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <button class="py-4 px=8 text-lg bg-teal hover:bg-teal-700 rounded-xl text-blue">Submit</button>
+
+    {%for message in messages %}
+        <p id="messages">{{message}}</p>
+    {% endfor %}
+    
+    <h5>Already Have an account? <a href="loginPage">Login Here!</a> </h5> 
+    
+    </form>
+</div>
 {% endblock %}
